@@ -1,0 +1,15 @@
+Tee funktio keskiarvo, joka saa parametrina kolme kokonaislukua. Funktio tulostaa parametriensa keskiarvon.
+
+keskiarvo(5, 3, 1)
+keskiarvo(10, 1, 1)
+Esimerkkitulostus:
+3.0
+4.0
+
+# Kirjoita ratkaisu tähän 
+# kokeillaan funktiota kutsumalla sitä täällä seuraavasti
+def keskiarvo(x, y, z):
+    tulos = (x + y + z) / 3
+    print(tulos)
+if __name__ == "__main__":
+    keskiarvo(1, 2, 3)
