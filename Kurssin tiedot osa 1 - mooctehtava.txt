@@ -1,0 +1,34 @@
+opiskelijat = {}
+
+try:
+    tiedosto_nimi = input("Anna opiskelijatiedoston nimi: ")
+    with open(tiedosto_nimi) as tiedosto:
+        for rivi in tiedosto:
+            osat = rivi.strip().split(';')
+            if osat[0] == "opnro":
+                continue
+            opiskelijat[osat[0]] = f"{osat[1]} {osat[2]}"
+except FileNotFoundError:
+    print(f"Tiedostoa '{tiedosto_nimi}' ei löydy.")
+except Exception as e:
+    print(f"Virhe tiedoston '{tiedosto_nimi}' lukemisessa: {e}")
+
+tehtava_lkm = {}
+
+try:
+    tiedosto_nimi = input("Anna tehtävätiedoston nimi: ")
+    with open(tiedosto_nimi) as tiedosto:
+        for rivi in tiedosto:
+            osat = rivi.strip().split(';')
+            if osat[0] == "opnro":
+                continue
+            tehtava_lkm[osat[0]] = sum(map(int, osat[1:]))
+except FileNotFoundError:
+    print(f"Tiedostoa '{tiedosto_nimi}' ei löydy.")
+except Exception as e:
+    print(f"Virhe tiedoston '{tiedosto_nimi}' lukemisessa: {e}")
+
+for opnro, nimi in opiskelijat.items():
+    if opnro in tehtava_lkm:
+        tehtavien_lkm = tehtava_lkm[opnro]
+        print(f"{nimi} {tehtavien_lkm}")
