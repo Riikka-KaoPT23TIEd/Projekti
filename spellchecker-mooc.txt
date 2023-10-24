@@ -1,0 +1,14 @@
+teksti = input("Kirjoita rivi englanninkielistä tekstiä: ")
+sanat = teksti.split()
+korjattu_teksti = []
+
+with open("wordlist.txt") as tiedosto:
+    sanaluettelo = set(sana.strip() for sana in tiedosto)
+    for sana in sanat:
+        if sana.lower() not in sanaluettelo:
+            korjattu_teksti.append("*" + sana + "*")
+        else:
+            korjattu_teksti.append(sana)
+
+korjattu_rivi = " ".join(korjattu_teksti)
+print(korjattu_rivi)
