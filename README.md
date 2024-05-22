@@ -1,2 +1,2 @@
-# Projekti
-Oma harjoitusprojekti
+# Git Harjoitus
+Oma harjoitus
